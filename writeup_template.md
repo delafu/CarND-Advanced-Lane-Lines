@@ -15,8 +15,8 @@ The goals / steps of this project are the following:
 
 [image1]: ./camera_cal/calibration2.jpg "Distorted Chessboard"
 [image2]: ./camera_cal/calibration2_un.jpg "Undistorted Chessboard"
-[image3]: ./examples/binary_combo_example.jpg "Binary Example"
-[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
+[image3]: ./test_images/straight_lines1.jpg "Test image distorted"
+[image4]: ./output_images/straight_lines1.jpg "Test Image undistorted"
 [image5]: ./examples/color_fit_lines.jpg "Fit Visual"
 [image6]: ./examples/example_output.jpg "Output"
 [video1]: ./project_video.mp4 "Video"
@@ -41,10 +41,10 @@ I start by preparing "object points", which will be the (x, y, z) coordinates of
 
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
 
-### Distorted Image
+#### Distorted Image
 ![alt text][image1]
 
-### Undistorted Image
+#### Undistorted Image
 
 ![alt text][image2]
 
@@ -53,7 +53,7 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 #### 1. Provide an example of a distortion-corrected image.
 
 To demonstrate this step, I will describe how I apply the distortion correction to one of the test images like this one:
-![alt text][image2]
+![alt text][image3]
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
