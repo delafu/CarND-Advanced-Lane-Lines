@@ -21,6 +21,8 @@ The goals / steps of this project are the following:
 [image6]: ./output_images/birdimgbin.png "Binary bird eye of view"
 [image7]: ./output_images/birdimg.png "Transformation"
 [image8]: ./output_images/polynomial.png "Polynomial lines"
+[image9]: ./output_images/video.png "Video image"
+
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -36,7 +38,7 @@ You're reading it!
 
 #### 1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
 
-The code for this step is contained in the first three cells of the IPython notebook located in "./Calibration.ipynb".  
+The code for this step is contained in the first three cells of the IPython notebook located in "./Advanced_Lane.ipynb".  
 
 I start by preparing "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Here I am assuming the chessboard is fixed on the (x, y) plane at z=0, such that the object points are the same for each calibration image.  Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time I successfully detect all chessboard corners in a test image.  `imgpoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection.  
 
@@ -98,19 +100,25 @@ I verified that my perspective transform was working as expected by drawing the 
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-We have now the image "binarized" with points belonging identified lines with a value of 1. 
+This is the tre tricky part of the project. I identify the lines of the projects and fit their positions with a polynomial using two methods. I learned the two methods in the lessons of the web course. The first is using the peaks of the histogram and a sliding window from the peaks detected. This is the blind method
 
 ![alt text][image8]
 
+The second method I use is when I´ve detected the lines with the first method. I can search in the neighbour of the lines detected using the blind method. 
+
+I use this method when I get a good fit in the video. To identify what is a good fit I do various sanity checks. I try to assure that the lines are good lines. This is done in the process_lines function of the python notebook.
+
+I know that this code can be improved.
+
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+I did this in the functions calc_curvature and calc_position of the notebook.
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+I implemented this step in the draw_result function of the notebook.  Here is an example of my result on a test image:
 
-![alt text][image6]
+![alt text][image9]
 
 ---
 
@@ -118,7 +126,7 @@ I implemented this step in lines # through # in my code in `yet_another_file.py`
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./project_video_output.mp4)
 
 ---
 
@@ -126,4 +134,4 @@ Here's a [link to my video result](./project_video.mp4)
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+I´ve found a lot of problems in this project. It´s the hardest project and the coolest of my projects in Udacity. I´ve worked hard to smooth the result but I´ve not had enough time to resolve the challenge video. I think that one of the weakness of my algorithm is that it search always for two lines.  
