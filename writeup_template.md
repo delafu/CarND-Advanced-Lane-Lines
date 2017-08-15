@@ -20,7 +20,7 @@ The goals / steps of this project are the following:
 [image5]: ./output_images/birdimg2.png "Bird eye of view"
 [image6]: ./output_images/birdimgbin.png "Binary bird eye of view"
 [image7]: ./output_images/birdimg.png "Transformation"
-[image7]: ./output_images/polynomial.png "Polynomial lines"
+[image8]: ./output_images/polynomial.png "Polynomial lines"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -100,7 +100,7 @@ I verified that my perspective transform was working as expected by drawing the 
 
 We have now the image "binarized" with points belonging identified lines with a value of 1. 
 
-![alt text][image7]
+![alt text][image8]
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
