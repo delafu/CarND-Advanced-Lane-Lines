@@ -17,8 +17,8 @@ The goals / steps of this project are the following:
 [image2]: ./camera_cal/calibration2_un.jpg "Undistorted Chessboard"
 [image3]: ./test_images/straight_lines1.jpg "Test image distorted"
 [image4]: ./output_images/straight_lines1.jpg "Test Image undistorted"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
+[image5]: ./output_images/birdimg2.png "Bird eye of view"
+[image6]: ./output_images/birdimgbin.png "Binary bird eye of view"
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -62,9 +62,21 @@ And finally we get:
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
+I tested many combinations of sobel gradients and color transforms in many color spaces and I find that the best transformation to identify lines in the road is the following:
 
-![alt text][image3]
+* I don´t use any Sobel. I´ve implemented some of them but I can obtain better results, in my opinion with color transforms.
+* I use the combination of different channels of different color spaces
+* The first is the L channel from the CIE color space that find almost perfectly the withe lines but don´t find the yellow ones. 
+* The second is the B channel from the Lab color space that do a great job identifying the yellow lines but don´t see the withe lines.
+* In some tests I used the S channel alone and in combination with the other two channels but I get better results and less recalculations using the window searching of the lines technique in the video 
+
+You can see the code in the fifth and sixth cell of the notebook
+#### Original image
+![alt text][image5]
+
+#### Binary image
+![alt text][image6]
+
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
